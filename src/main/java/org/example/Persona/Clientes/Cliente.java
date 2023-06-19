@@ -84,6 +84,7 @@ public class Cliente extends Persona implements Serializable {
         this.saldo = saldo;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

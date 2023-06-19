@@ -3,7 +3,6 @@ package org.example.Persona.Clientes;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import org.example.Interfaces.Repository;
-import org.example.Productos.Producto;
 
 import java.io.File;
 import java.io.IOException;
