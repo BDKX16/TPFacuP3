@@ -6,4 +6,5 @@ public class Admin extends Persona {
     public Admin(int id) {
         super(id);
     }
+
 }

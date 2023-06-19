@@ -1,7 +1,7 @@
 package org.example.Persona;
 
 public abstract class Persona {
-    private int id;
+    protected int id;
 
     public Persona(int id) {
         this.id = id;
@@ -9,4 +9,9 @@ public abstract class Persona {
 
     public Persona() {
     }
+
+    public int getId() {
+        return id;
+    }
+
 }

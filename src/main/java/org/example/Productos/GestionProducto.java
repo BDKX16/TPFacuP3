@@ -1,4 +1,4 @@
 package org.example.Productos;
-public class GestionProductos {
+public class GestionProducto {
     private String prod;
 }
