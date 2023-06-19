@@ -1,7 +1,8 @@
-package org.example.Clientes;
+package org.example.Persona.Clientes;
 
-public class Clientes {
-    private int id;
+import org.example.Persona.Persona;
+
+public class Clientes extends Persona {
     private String nombre;
     private String apellido;
     private String dni;
@@ -11,7 +12,7 @@ public class Clientes {
     private double saldo;
 
     public Clientes(int id, String nombre, String apellido, String dni, String calle, int alturaCalle, String ciudad, double saldo) {
-        this.id = id;
+        super(id);
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -19,5 +20,8 @@ public class Clientes {
         this.alturaCalle = alturaCalle;
         this.ciudad = ciudad;
         this.saldo = saldo;
+    }
+
+    public Clientes() {
     }
 }
