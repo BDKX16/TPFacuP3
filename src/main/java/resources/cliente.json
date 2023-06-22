@@ -1,0 +1,11 @@
+[ {
+  "pin" : 8475,
+  "id" : 1,
+  "nombre" : "Marcos",
+  "apellido" : "Ramirez",
+  "dni" : "41236578",
+  "calle" : "Guido",
+  "alturaCalle" : 5021,
+  "ciudad" : "Mar del Plata",
+  "saldo" : 20000.0
+} ]

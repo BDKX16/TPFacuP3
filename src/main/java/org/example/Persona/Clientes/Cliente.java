@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class Cliente extends Persona implements Serializable {
+    private int id;
     private String nombre;
     private String apellido;
     private String dni;
@@ -14,8 +15,9 @@ public class Cliente extends Persona implements Serializable {
     private String ciudad;
     private double saldo;
 
-    public Cliente(int id, String nombre, String apellido, String dni, String calle, int alturaCalle, String ciudad, double saldo) {
-        super(id);
+    public Cliente(int pin, int id, String nombre, String apellido, String dni, String calle, int alturaCalle, String ciudad, double saldo) {
+        super(pin);
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -26,6 +28,14 @@ public class Cliente extends Persona implements Serializable {
     }
 
     public Cliente() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -89,12 +99,12 @@ public class Cliente extends Persona implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Cliente cliente)) return false;
-        return alturaCalle == cliente.alturaCalle && Double.compare(cliente.saldo, saldo) == 0 && Objects.equals(nombre, cliente.nombre) && Objects.equals(apellido, cliente.apellido) && Objects.equals(dni, cliente.dni) && Objects.equals(calle, cliente.calle) && Objects.equals(ciudad, cliente.ciudad);
+        return id == cliente.id && alturaCalle == cliente.alturaCalle && Double.compare(cliente.saldo, saldo) == 0 && Objects.equals(nombre, cliente.nombre) && Objects.equals(apellido, cliente.apellido) && Objects.equals(dni, cliente.dni) && Objects.equals(calle, cliente.calle) && Objects.equals(ciudad, cliente.ciudad);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre, apellido, dni, calle, alturaCalle, ciudad, saldo);
+        return Objects.hash(id, nombre, apellido, dni, calle, alturaCalle, ciudad, saldo);
     }
 
     @Override

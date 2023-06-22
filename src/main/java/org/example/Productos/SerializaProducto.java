@@ -3,6 +3,7 @@ package org.example.Productos;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import org.example.Interfaces.Repository;
+import org.example.Persona.Clientes.Cliente;
 
 import java.io.File;
 import java.io.IOException;
@@ -62,6 +63,21 @@ public class  SerializaProducto implements Repository<Producto> {
         for (Producto producto: listaProducto){
             if (producto.getId()==id){
                 listaProducto.remove(producto);
+            }
+        }
+        guardar();
+    }
+
+    @Override
+    public void modificar(Producto objeto) {
+        cargar();
+        for(Producto producto: this.listaProducto){
+            if(producto.getId() == objeto.getId()){
+                producto.setNombre(objeto.getNombre());
+                producto.setValor(objeto.getValor());
+                producto.setStock(objeto.getStock());
+                producto.setCategoria(objeto.getCategoria());
+                break;
             }
         }
         guardar();

@@ -1,0 +1,7 @@
+[ {
+  "id" : 1,
+  "nombre" : "Naranja",
+  "valor" : 30.0,
+  "stock" : 500,
+  "categoria" : "FRUTAS"
+} ]

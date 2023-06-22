@@ -1,17 +1,20 @@
 package org.example.Persona;
 
 public abstract class Persona {
-    protected int id;
+    protected int pin;
 
-    public Persona(int id) {
-        this.id = id;
+    public Persona(int pin) {
+        this.pin = pin;
     }
 
     public Persona() {
     }
 
-    public int getId() {
-        return id;
+    public int getPin() {
+        return pin;
     }
 
+    public void setPin(int pin) {
+        this.pin = pin;
+    }
 }

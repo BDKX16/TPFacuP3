@@ -1,5 +1,7 @@
 package org.example.Interfaces;
 
+import org.example.Exceptions.RepiteDNI;
+
 import java.util.List;
 
 public interface Repository<T> {
@@ -9,4 +11,5 @@ public interface Repository<T> {
     List<T> listar();
     T buscaPorID(int id);
     void eliminar(int id);
+    void modificar(T objeto) throws RepiteDNI;
 }
