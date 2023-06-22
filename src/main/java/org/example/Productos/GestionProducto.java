@@ -12,19 +12,18 @@ public class GestionProducto implements GestionG<Producto> {
 
 
     @Override
-    public void alta(Producto objeto)throws RepiteID {
-        try{
+    public void alta(Producto objeto){
+        try {
             productosEstado.cargar();
-            if(null==productosEstado.buscaPorID(objeto.getId())){
+            if (null == productosEstado.buscaPorID(objeto.getId())) {
                 productosEstado.agregar(objeto);
-            }
-            else{
+            } else {
                 throw new RepiteID("El ID ingresado ya existe, por favor ingrese otro ID");
             }
             productosEstado.guardar();
             System.out.println("Se agrego el producto: " + objeto);
-        }catch (RepiteID e){
-            System.out.println("ERROR: "+ e);
+        } catch (RepiteID e) {
+            System.out.println("ERROR: " + e);
         }
     }
 
@@ -36,14 +35,14 @@ public class GestionProducto implements GestionG<Producto> {
     @Override
     public void mostrar() {
         System.out.println("Lista de productos:");
-        for (Producto producto: productosEstado.listar()){
+        for (Producto producto : productosEstado.listar()) {
             System.out.println(producto);
         }
     }
 
     @Override
     public void modificarM(int id) {
-        Producto productoModificado=productosEstado.buscaPorID(id);
+        Producto productoModificado = productosEstado.buscaPorID(id);
         Scanner scan = new Scanner(System.in);
         System.out.println("Ingrese el nuevo nombre del producto");
         productoModificado.setNombre(scan.nextLine());
@@ -52,7 +51,7 @@ public class GestionProducto implements GestionG<Producto> {
         System.out.println("Ingrese el stock del producto");
         productoModificado.setStock(scan.nextInt());
         String control = "s";
-        while(control.equalsIgnoreCase("s")) {
+        while (control.equalsIgnoreCase("s")) {
             System.out.println("Elija la categoria para el producto:");
             System.out.println("1. FRUTAS");
             System.out.println("2. VERDURAS");
@@ -83,47 +82,47 @@ public class GestionProducto implements GestionG<Producto> {
     }
 
     @Override
-    public void altaManual(Producto objeto) throws RepiteID {
-        productosEstado.cargar();
-        int i=0;
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Ingrese ID de producto");
-        objeto.setId(scan.nextInt());
-        scan.nextLine();
-        if(null==productosEstado.buscaPorID(objeto.getId())){
-            i=1;
-        }
-        else{
-            throw new RepiteID("El ID ingresado ya existe, por favor ingrese otro ID");
-        }
-        System.out.println("Ingrese nombre de producto");
-        objeto.setNombre(scan.nextLine());
-        System.out.println("Ingrese valor de producto");
-        objeto.setValor(scan.nextDouble());
-        System.out.println("Ingrese el stock del producto");
-        objeto.setStock(scan.nextInt());
-        System.out.println("Elija la categoria para el producto:");
-        System.out.println("1. FRUTAS");
-        System.out.println("2. VERDURAS");
-        System.out.println("3. BEBIDAS");
-        System.out.println("4. CONGELADOS");
-        System.out.print("-> ");
-        int o = scan.nextInt();
-        if (o==1){
-            objeto.setCategoria(Producto.Categoria.FRUTAS);
-        }
-        else if (o==2){
-            objeto.setCategoria(Producto.Categoria.VERDURAS);
-        }
-        else if (o==3){
-            objeto.setCategoria(Producto.Categoria.BEBIDAS);
-        }
-        else if (o==4){
-            objeto.setCategoria(Producto.Categoria.CONGELADOS);
-        }
-        if (i==1){
-            productosEstado.agregar(objeto);
-            System.out.println("Se agrego el producto: " + objeto);
+    public void altaManual(Producto objeto){
+        try {
+            productosEstado.cargar();
+            int i = 0;
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Ingrese ID de producto");
+            objeto.setId(scan.nextInt());
+            scan.nextLine();
+            if (null == productosEstado.buscaPorID(objeto.getId())) {
+                i = 1;
+            } else {
+                throw new RepiteID("El ID ingresado ya existe, por favor ingrese otro ID");
+            }
+            System.out.println("Ingrese nombre de producto");
+            objeto.setNombre(scan.nextLine());
+            System.out.println("Ingrese valor de producto");
+            objeto.setValor(scan.nextDouble());
+            System.out.println("Ingrese el stock del producto");
+            objeto.setStock(scan.nextInt());
+            System.out.println("Elija la categoria para el producto:");
+            System.out.println("1. FRUTAS");
+            System.out.println("2. VERDURAS");
+            System.out.println("3. BEBIDAS");
+            System.out.println("4. CONGELADOS");
+            System.out.print("-> ");
+            int o = scan.nextInt();
+            if (o == 1) {
+                objeto.setCategoria(Producto.Categoria.FRUTAS);
+            } else if (o == 2) {
+                objeto.setCategoria(Producto.Categoria.VERDURAS);
+            } else if (o == 3) {
+                objeto.setCategoria(Producto.Categoria.BEBIDAS);
+            } else if (o == 4) {
+                objeto.setCategoria(Producto.Categoria.CONGELADOS);
+            }
+            if (i == 1) {
+                productosEstado.agregar(objeto);
+                System.out.println("Se agrego el producto: " + objeto);
+            }
+        } catch (RepiteID e) {
+            System.out.println("ERROR: " + e);
         }
     }
 }

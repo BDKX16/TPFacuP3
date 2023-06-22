@@ -103,12 +103,21 @@ public class SerializaCliente implements Repository<Cliente> {
     public int verificacion(int id) {
         int check=0;
         Cliente cliente = buscaPorID(id);
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Ingrese su pin");
-        int pin = scan.nextInt();
-        scan.nextLine();
-        if (pin == cliente.getPin()) {
-            check=1;
+        if(cliente==null) {
+            System.out.println("El cliente con el ID " + id + " no existe");
+        }
+        else {
+            Scanner scan = new Scanner(System.in);
+            if (cliente != null) {
+                System.out.println("Ingrese su pin");
+                int pin = scan.nextInt();
+                scan.nextLine();
+                if (pin == cliente.getPin()) {
+                    check = 1;
+                } else {
+                    System.out.println("El pin ingresado no corresponde a su ID");
+                }
+            }
         }
         return check;
     }

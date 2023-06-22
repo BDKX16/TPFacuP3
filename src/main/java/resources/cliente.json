@@ -1,6 +1,6 @@
 [ {
   "pin" : 8475,
-  "id" : 1,
+  "id" : 2,
   "nombre" : "Julian",
   "apellido" : "Lopez",
   "dni" : "41356542",
@@ -8,4 +8,34 @@
   "alturaCalle" : 545,
   "ciudad" : "La Plata",
   "saldo" : 15000.0
+}, {
+  "pin" : 8475,
+  "id" : 1,
+  "nombre" : "Marcos",
+  "apellido" : "Ramirez",
+  "dni" : "41236578",
+  "calle" : "Guido",
+  "alturaCalle" : 5021,
+  "ciudad" : "Mar del Plata",
+  "saldo" : 20000.0
+}, {
+  "pin" : 1546,
+  "id" : 3,
+  "nombre" : "Maria",
+  "apellido" : "Perez",
+  "dni" : "35465421",
+  "calle" : "Av Jara",
+  "alturaCalle" : 632,
+  "ciudad" : "Mar del Plata",
+  "saldo" : 27000.0
+}, {
+  "pin" : 7455,
+  "id" : 4,
+  "nombre" : "Jorge",
+  "apellido" : "Ulia",
+  "dni" : "26548621",
+  "calle" : "Marconi",
+  "alturaCalle" : 7654,
+  "ciudad" : "Mar del Plata",
+  "saldo" : 35000.0
 } ]

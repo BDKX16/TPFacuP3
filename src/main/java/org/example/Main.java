@@ -44,7 +44,6 @@ public class Main {
                                 Cliente cliente = new Cliente();
                                 GestionCliente client = new GestionCliente();
                                 client.altaManual(cliente);
-                                System.out.println("Se registro el cliente: " + cliente);
                             }
                             case "3" -> {
                                 System.out.println("Ingrese su ID");
@@ -61,7 +60,6 @@ public class Main {
                                 scan.nextLine();
                                 GestionCliente client = new GestionCliente();
                                 client.modificarM(id);
-                                System.out.println("Se modifico correctamente el cliente con el ID: " + id);
                             }
                             case "5" -> {
                                 while (control.equalsIgnoreCase("s")) {
