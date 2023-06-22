@@ -66,12 +66,12 @@ public class Producto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Producto producto)) return false;
-        return id == producto.id && Double.compare(producto.valor, valor) == 0 && stock == producto.stock && Objects.equals(nombre, producto.nombre) && categoria == producto.categoria;
+        return id == producto.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, valor, stock, categoria);
+        return Objects.hash(id);
     }
 
     @Override

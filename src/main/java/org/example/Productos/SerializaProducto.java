@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SerializaProducto implements Repository<Producto> {
+public class  SerializaProducto implements Repository<Producto> {
     private final File archivoProducto = new File("src\\main\\java\\resources\\producto.json");
     private final ObjectMapper mapper = new ObjectMapper();
     private  List<Producto> listaProducto;
