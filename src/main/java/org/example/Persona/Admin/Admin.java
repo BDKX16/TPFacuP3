@@ -7,4 +7,6 @@ public class Admin extends Persona {
         super(pin);
     }
 
+    public Admin() {
+    }
 }
