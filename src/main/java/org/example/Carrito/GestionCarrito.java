@@ -19,11 +19,12 @@ public class GestionCarrito implements Serializable {
         listaProductos.add(producto);
         double total = carrito.getTotal() + producto.getValor();
         carrito.setTotal(total);
-        System.out.println("Producto agregado al carrito: " + producto.getNombre());
+        System.out.println("Se agrego "+producto.getNombre()+" al carrito");
         carritoEstado.agregarProdCarrito(producto);
     }
     public Producto quitarProducto(Producto producto){
         if (listaProductos.contains(producto)){
+            System.out.println("Se elimino "+producto.getNombre()+" del carrito");
             listaProductos.remove(producto);
             carritoEstado.eliminarProdCarrito(producto);
         }else{

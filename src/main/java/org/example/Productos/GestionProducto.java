@@ -43,42 +43,37 @@ public class GestionProducto implements GestionG<Producto> {
     @Override
     public void modificarM(int id) {
         Producto productoModificado = productosEstado.buscaPorID(id);
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Ingrese el nuevo nombre del producto");
-        productoModificado.setNombre(scan.nextLine());
-        System.out.println("Ingrese el nuevo valor del producto");
-        productoModificado.setValor(scan.nextDouble());
-        System.out.println("Ingrese el stock del producto");
-        productoModificado.setStock(scan.nextInt());
-        String control = "s";
-        while (control.equalsIgnoreCase("s")) {
+        if (productoModificado!=null) {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Ingrese nombre de producto");
+            productoModificado.setNombre(scan.nextLine());
+            System.out.println("Ingrese valor de producto");
+            productoModificado.setValor(scan.nextDouble());
+            System.out.println("Ingrese el stock del producto");
+            productoModificado.setStock(scan.nextInt());
             System.out.println("Elija la categoria para el producto:");
             System.out.println("1. FRUTAS");
             System.out.println("2. VERDURAS");
             System.out.println("3. BEBIDAS");
             System.out.println("4. CONGELADOS");
             System.out.print("-> ");
-            String opcion2 = scan.nextLine();
-            switch (opcion2) {
-                case "1" -> {
-                    productoModificado.setCategoria(Producto.Categoria.FRUTAS);
-                }
-                case "2" -> {
-                    productoModificado.setCategoria(Producto.Categoria.VERDURAS);
-                }
-                case "3" -> {
-                    productoModificado.setCategoria(Producto.Categoria.BEBIDAS);
-                }
-                case "4" -> {
-                    productoModificado.setCategoria(Producto.Categoria.CONGELADOS);
-                }
-                default -> System.out.println("La eleccion es invalida");
+            int o = scan.nextInt();
+            scan.nextLine();
+            if (o == 1) {
+                productoModificado.setCategoria(Producto.Categoria.FRUTAS);
+            } else if (o == 2) {
+                productoModificado.setCategoria(Producto.Categoria.VERDURAS);
+            } else if (o == 3) {
+                productoModificado.setCategoria(Producto.Categoria.BEBIDAS);
+            } else if (o == 4) {
+                productoModificado.setCategoria(Producto.Categoria.CONGELADOS);
             }
-            System.out.println("Si su eleccion no fue correcta presione 's'");
-            control = scan.nextLine();
+            System.out.println("El producto fue modificado correctamente");
+            productosEstado.modificar(productoModificado);
         }
-        productoModificado.setCategoria(Producto.Categoria.valueOf(scan.nextLine()));
-        productosEstado.modificar(productoModificado);
+        else{
+            System.out.println("El ID "+id+" no existe");
+        }
     }
 
     @Override

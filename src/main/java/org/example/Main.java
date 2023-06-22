@@ -32,6 +32,7 @@ public class Main {
                         System.out.println("3. Eliminar Cliente");
                         System.out.println("4. Modificar Cliente");
                         System.out.println("5. Comprar productos");
+                        System.out.println("6. Salir...");
                         System.out.print("-> ");
                         String opcion1 = scan.nextLine();
                         switch (opcion1) {
@@ -70,6 +71,7 @@ public class Main {
                                     System.out.println("4. Ver lista de Productos disponibles");
                                     System.out.println("5. Vaciar carrito");
                                     System.out.println("6. Finalizar compra");
+                                    System.out.println("7. Salir...");
                                     System.out.print("-> ");
                                     String opcion3 = scan.nextLine();
                                     switch (opcion3) {
@@ -108,11 +110,15 @@ public class Main {
                                             GestionCarrito carrito = new GestionCarrito();
                                             carrito.detallesDeCompra();
                                         }
+                                        case "7" -> {
+                                        }
                                         default -> System.out.println("La eleccion es invalida");
                                     }
                                     System.out.println("Desea volver al menu de compra? s/n");
                                     control = scan.nextLine();
                                 }
+                            }
+                            case "6" -> {
                             }
                             default -> System.out.println("La eleccion es invalida");
                         }
@@ -135,6 +141,7 @@ public class Main {
                         System.out.println("4. Mostrar Productos");
                         System.out.println("5. Modificar Producto");
                         System.out.println("6. Mostrar Clientes");
+                        System.out.println("7. Salir...");
                         System.out.print("-> ");
                         String opcion2 = scan.nextLine();
                         switch (opcion2) {
@@ -147,16 +154,14 @@ public class Main {
                                 Producto producto = new Producto();
                                 GestionProducto product = new GestionProducto();
                                 product.altaManual(producto);
-                                System.out.println("Se agrego el producto: " + producto);
                             }
                             case "3" -> {
                                 System.out.println("Ingrese ID de producto");
                                 System.out.print("-> ");
                                 int id = scan.nextInt();
+                                scan.nextLine();
                                 GestionProducto product = new GestionProducto();
                                 product.baja(id);
-                                System.out.println("Se elimino correctamente el producto con el ID: " + id);
-
                             }
                             case "4" -> {
                                 GestionProducto product = new GestionProducto();
@@ -166,13 +171,15 @@ public class Main {
                                 System.out.println("Ingrese ID de producto");
                                 System.out.print("-> ");
                                 int id = scan.nextInt();
+                                scan.nextLine();
                                 GestionProducto product = new GestionProducto();
                                 product.modificarM(id);
-                                System.out.println("Se modifico correctamente el producto con el ID: " + id);
                             }
                             case "6" -> {
                                 GestionCliente client = new GestionCliente();
                                 client.mostrar();
+                            }
+                            case "7" -> {
                             }
                             default -> System.out.println("La eleccion es invalida");
                         }

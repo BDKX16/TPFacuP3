@@ -59,10 +59,16 @@ public class  SerializaProducto implements Repository<Producto> {
     @Override
     public void eliminar(int id) {
         cargar();
+        int control=0;
         for (Producto producto: listaProducto){
             if (producto.getId()==id){
                 listaProducto.remove(producto);
+                System.out.println("Se elimino correctamente el producto con el ID: " + id);
+                control=1;
             }
+        }
+        if (control==0){
+                System.out.println("El ID "+id+" no existe");
         }
         guardar();
     }

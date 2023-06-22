@@ -47,14 +47,14 @@ public class GestionCliente implements GestionG<Cliente> {
 
     @Override
     public void mostrar() {
+        System.out.println("Lista de clientes:");
         for (Cliente cliente: clientesEstado.listar()){
-            System.out.println("Lista de clientes:");
             System.out.println(cliente);
         }
     }
 
     @Override
-    public void modificarM(int id) throws RepiteDNI {
+    public void modificarM(int id){
         int check=0;
         Cliente clienteModificado=clientesEstado.buscaPorID(id);
         Scanner scan = new Scanner(System.in);
@@ -63,8 +63,6 @@ public class GestionCliente implements GestionG<Cliente> {
             clienteModificado.setNombre(scan.nextLine());
             System.out.println("Ingrese el nuevo apellido del cliente");
             clienteModificado.setApellido(scan.nextLine());
-            System.out.println("Ingrese el nuevo DNI del cliente");
-            clienteModificado.setDni(scan.nextLine());
             System.out.println("Ingrese la calle del cliente");
             clienteModificado.setCalle(scan.nextLine());
             System.out.println("Ingrese la altura de la calle del cliente");

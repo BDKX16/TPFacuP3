@@ -11,5 +11,5 @@ public interface Repository<T> {
     List<T> listar();
     T buscaPorID(int id);
     void eliminar(int id);
-    void modificar(T objeto) throws RepiteDNI;
+    void modificar(T objeto);
 }

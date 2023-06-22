@@ -18,8 +18,8 @@
   "categoria" : "CONGELADOS"
 }, {
   "id" : 4,
-  "nombre" : "Lechuga",
-  "valor" : 15.0,
+  "nombre" : "Papa",
+  "valor" : 13.0,
   "stock" : 2000,
   "categoria" : "VERDURAS"
 } ]

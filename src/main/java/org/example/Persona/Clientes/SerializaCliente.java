@@ -74,23 +74,12 @@ public class SerializaCliente implements Repository<Cliente> {
         guardar();
     }
     @Override
-    public void modificar(Cliente objeto)throws RepiteDNI {
+    public void modificar(Cliente objeto){
         cargar();
         for(Cliente cliente: this.listaCliente){
             if(cliente.getId() == objeto.getId()){
                 cliente.setNombre(objeto.getNombre());
                 cliente.setApellido(objeto.getApellido());
-                if (cliente.getDni().equals(objeto.getDni())) {
-                    throw new RepiteDNI("El Dni ingresado ya existe, por favor ingrese otro Dni");
-                }
-                if (objeto.getDni().equals(cliente.getDni())){
-                    Scanner scanner = new Scanner(System.in);
-                    System.out.print("-> ");
-                    cliente.setDni(scanner.nextLine());
-                }
-                else {
-                    cliente.setDni(objeto.getDni());
-                }
                 cliente.setCalle(objeto.getCalle());
                 cliente.setAlturaCalle(objeto.getAlturaCalle());
                 cliente.setCiudad(objeto.getCiudad());
