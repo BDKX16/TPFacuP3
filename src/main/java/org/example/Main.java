@@ -39,7 +39,6 @@ public class Main {
                                 Cliente cliente = new Cliente(8475, 1, "Marcos", "Ramirez", "41236578", "Guido", 5021, "Mar del Plata", 20000);
                                 GestionCliente client = new GestionCliente();
                                 client.alta(cliente);
-                                System.out.println("Se registro el cliente: " + cliente);
                             }
                             case "2" -> {
                                 Cliente cliente = new Cliente();
@@ -145,7 +144,6 @@ public class Main {
                                 Producto producto = new Producto(1, "Naranja", 30, 500, Producto.Categoria.FRUTAS);
                                 GestionProducto product = new GestionProducto();
                                 product.alta(producto);
-                                System.out.println("Se agrego el producto: " + producto);
                             }
                             case "2" -> {
                                 Producto producto = new Producto();

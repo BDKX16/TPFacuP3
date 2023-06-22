@@ -11,22 +11,28 @@ public class GestionCliente implements GestionG<Cliente> {
 
     @Override
     public void alta(Cliente objeto) throws RepiteID,RepiteDNI {
-        clientesEstado.cargar();
-        int i=0;
-        if(null==clientesEstado.buscaPorID(objeto.getId())){
-            i++;
-        }
-        else{
-            throw new RepiteID("El ID ingresado ya existe, por favor ingrese otro ID");
-        }
-        if(null==clientesEstado.buscaPorDNI(objeto.getDni())){
-            i++;
-        }
-        else{
-            throw new RepiteDNI("El DNI ingresado ya existe, por favor ingrese otro DNI");
-        }
-        if(i == 2){
-            clientesEstado.agregar(objeto);
+        try{
+            clientesEstado.cargar();
+            int i=0;
+            if(null==clientesEstado.buscaPorID(objeto.getId())){
+                i++;
+            }
+            else{
+                throw new RepiteID("El ID ingresado ya existe, por favor ingrese otro ID");
+            }
+            if(null==clientesEstado.buscaPorDNI(objeto.getDni())){
+                i++;
+            }
+            else{
+                throw new RepiteDNI("El Dni ingresado ya existe, por favor ingrese otro Dni");
+            }
+            if(i == 2){
+                clientesEstado.agregar(objeto);
+            }
+
+            System.out.println("Se registro el cliente: " + objeto);
+        }catch(RepiteID | RepiteDNI e){
+            System.out.println("Error: " + e);
         }
     }
 
@@ -117,6 +123,7 @@ public class GestionCliente implements GestionG<Cliente> {
         objeto.setSaldo(scan.nextDouble());
         if (i==2){
             clientesEstado.agregar(objeto);
+            System.out.println("Se registro el cliente: " + objeto);
         }
     }
 }

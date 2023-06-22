@@ -13,14 +13,19 @@ public class GestionProducto implements GestionG<Producto> {
 
     @Override
     public void alta(Producto objeto)throws RepiteID {
-        productosEstado.cargar();
-        if(null==productosEstado.buscaPorID(objeto.getId())){
-            productosEstado.agregar(objeto);
+        try{
+            productosEstado.cargar();
+            if(null==productosEstado.buscaPorID(objeto.getId())){
+                productosEstado.agregar(objeto);
+            }
+            else{
+                throw new RepiteID("El ID ingresado ya existe, por favor ingrese otro ID");
+            }
+            productosEstado.guardar();
+            System.out.println("Se agrego el producto: " + objeto);
+        }catch (RepiteID e){
+            System.out.println("ERROR: "+ e);
         }
-        else{
-            throw new RepiteID("El ID ingresado ya existe, por favor ingrese otro ID");
-        }
-        productosEstado.guardar();
     }
 
     @Override
@@ -118,6 +123,7 @@ public class GestionProducto implements GestionG<Producto> {
         }
         if (i==1){
             productosEstado.agregar(objeto);
+            System.out.println("Se agrego el producto: " + objeto);
         }
     }
 }
