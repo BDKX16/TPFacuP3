@@ -5,6 +5,7 @@ import org.example.Exceptions.RepiteID;
 import org.example.Interfaces.GestionG;
 import org.example.Persona.Clientes.Cliente;
 
+import java.io.Console;
 import java.util.Scanner;
 
 public class GestionProducto implements GestionG<Producto> {
@@ -13,14 +14,25 @@ public class GestionProducto implements GestionG<Producto> {
 
     @Override
     public void alta(Producto objeto)throws RepiteID {
-        productosEstado.cargar();
-        if(null==productosEstado.buscaPorID(objeto.getId())){
-            productosEstado.agregar(objeto);
+
+        try{
+
+            productosEstado.cargar();
+            if(null==productosEstado.buscaPorID(objeto.getId())){
+                productosEstado.agregar(objeto);
+            }
+            else{
+                throw new RepiteID("Ya esta creado el producto automatico");
+            }
+            productosEstado.guardar();
+
+            System.out.println("Se agrego el producto: " + objeto);
+
+
+        }catch (RepiteID e){
+            System.out.println("ERROR: "+ e);
         }
-        else{
-            throw new RepiteID("El ID ingresado ya existe, por favor ingrese otro ID");
-        }
-        productosEstado.guardar();
+
     }
 
     @Override
