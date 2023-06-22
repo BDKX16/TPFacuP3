@@ -22,7 +22,7 @@ public class GestionProducto implements GestionG<Producto> {
                 productosEstado.agregar(objeto);
             }
             else{
-                throw new RepiteID("Ya esta creado el producto automatico");
+                throw new RepiteID("El ID ingresado ya existe, por favor ingrese otro ID");
             }
             productosEstado.guardar();
 
