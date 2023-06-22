@@ -8,4 +8,14 @@
   "alturaCalle" : 5021,
   "ciudad" : "Mar del Plata",
   "saldo" : 20000.0
+}, {
+  "pin" : 3525,
+  "id" : 2,
+  "nombre" : "Lucas",
+  "apellido" : "Flores",
+  "dni" : "40356984",
+  "calle" : "Castelli",
+  "alturaCalle" : 789,
+  "ciudad" : "Mar del Plata",
+  "saldo" : 35000.0
 } ]

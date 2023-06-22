@@ -31,7 +31,7 @@ public class SerializaCarrito extends Producto{
     }
     public void agregarProdCarrito(Producto objeto) {
         cargarCarrito();
-        //System.out.println(listaCarrito);
+
         this.listaCarrito.add(objeto);
         guardarCarrito();
     }
@@ -42,10 +42,6 @@ public class SerializaCarrito extends Producto{
     }
     public ArrayList<Producto> listarProdCarrito() {
         cargarCarrito();
-        for (Producto producto: listaCarrito) {
-            System.out.println("Lista de productos:");
-            System.out.println(producto);
-        }
         return this.listaCarrito;
     }
 

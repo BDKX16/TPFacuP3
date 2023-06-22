@@ -34,10 +34,4 @@ public class Carrito extends Producto implements Serializable {
         return Objects.hash(super.hashCode(), total);
     }
 
-    @Override
-    public String toString() {
-        return "Carrito{" +
-                "total=" + total +
-                '}';
-    }
 }

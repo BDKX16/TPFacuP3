@@ -30,8 +30,8 @@ public class GestionProducto implements GestionG<Producto> {
 
     @Override
     public void mostrar() {
+        System.out.println("Lista de productos:");
         for (Producto producto: productosEstado.listar()){
-            System.out.println("Lista de productos:");
             System.out.println(producto);
         }
     }
@@ -84,6 +84,7 @@ public class GestionProducto implements GestionG<Producto> {
         Scanner scan = new Scanner(System.in);
         System.out.println("Ingrese ID de producto");
         objeto.setId(scan.nextInt());
+        scan.nextLine();
         if(null==productosEstado.buscaPorID(objeto.getId())){
             i=1;
         }
@@ -96,34 +97,25 @@ public class GestionProducto implements GestionG<Producto> {
         objeto.setValor(scan.nextDouble());
         System.out.println("Ingrese el stock del producto");
         objeto.setStock(scan.nextInt());
-        String control = "s";
-        while(control.equalsIgnoreCase("s")) {
-            System.out.println("Elija la categoria para el producto:");
-            System.out.println("1. FRUTAS");
-            System.out.println("2. VERDURAS");
-            System.out.println("3. BEBIDAS");
-            System.out.println("4. CONGELADOS");
-            System.out.print("-> ");
-            String opcion2 = scan.nextLine();
-            switch (opcion2) {
-                case "1" -> {
-                    objeto.setCategoria(Producto.Categoria.FRUTAS);
-                }
-                case "2" -> {
-                    objeto.setCategoria(Producto.Categoria.VERDURAS);
-                }
-                case "3" -> {
-                    objeto.setCategoria(Producto.Categoria.BEBIDAS);
-                }
-                case "4" -> {
-                    objeto.setCategoria(Producto.Categoria.CONGELADOS);
-                }
-                default -> System.out.println("La eleccion es invalida");
-            }
-            System.out.println("Si su eleccion NO fue correcta presione 's'");
-            control = scan.nextLine();
+        System.out.println("Elija la categoria para el producto:");
+        System.out.println("1. FRUTAS");
+        System.out.println("2. VERDURAS");
+        System.out.println("3. BEBIDAS");
+        System.out.println("4. CONGELADOS");
+        System.out.print("-> ");
+        int o = scan.nextInt();
+        if (o==1){
+            objeto.setCategoria(Producto.Categoria.FRUTAS);
         }
-        objeto.setCategoria(Producto.Categoria.valueOf(scan.nextLine()));
+        else if (o==2){
+            objeto.setCategoria(Producto.Categoria.VERDURAS);
+        }
+        else if (o==3){
+            objeto.setCategoria(Producto.Categoria.BEBIDAS);
+        }
+        else if (o==4){
+            objeto.setCategoria(Producto.Categoria.CONGELADOS);
+        }
         if (i==1){
             productosEstado.agregar(objeto);
         }

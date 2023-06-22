@@ -108,7 +108,7 @@ public class SerializaCliente implements Repository<Cliente> {
         Scanner scan = new Scanner(System.in);
         System.out.println("Ingrese su pin");
         int pin=scan.nextInt();
-        if (cliente.getPin()==pin){
+        if (pin==cliente.getPin()){
             return true;
         }
         else{

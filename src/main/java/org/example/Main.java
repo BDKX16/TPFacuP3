@@ -52,14 +52,15 @@ public class Main {
                                 System.out.println("Ingrese su ID");
                                 System.out.print("-> ");
                                 int id = scan.nextInt();
+                                scan.nextLine();
                                 GestionCliente client = new GestionCliente();
                                 client.baja(id);
-                                System.out.println("Se elimino correctamente el cliente con el ID: " + id);
                             }
                             case "4" -> {
                                 System.out.println("Ingrese su ID");
                                 System.out.print("-> ");
                                 int id = scan.nextInt();
+                                scan.nextLine();
                                 GestionCliente client = new GestionCliente();
                                 client.modificarM(id);
                                 System.out.println("Se modifico correctamente el cliente con el ID: " + id);

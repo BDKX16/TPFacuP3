@@ -4,4 +4,22 @@
   "valor" : 30.0,
   "stock" : 500,
   "categoria" : "FRUTAS"
+}, {
+  "id" : 2,
+  "nombre" : "Gaseosa",
+  "valor" : 200.0,
+  "stock" : 300,
+  "categoria" : "BEBIDAS"
+}, {
+  "id" : 3,
+  "nombre" : "Papas Fritas",
+  "valor" : 150.0,
+  "stock" : 400,
+  "categoria" : "CONGELADOS"
+}, {
+  "id" : 4,
+  "nombre" : "Lechuga",
+  "valor" : 15.0,
+  "stock" : 2000,
+  "categoria" : "VERDURAS"
 } ]

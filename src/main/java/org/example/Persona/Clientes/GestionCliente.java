@@ -32,8 +32,10 @@ public class GestionCliente implements GestionG<Cliente> {
 
     @Override
     public void baja(int id) {
-        if(clientesEstado.verificacion(id)){
+        boolean check=clientesEstado.verificacion(id);
+        if(check){
             clientesEstado.eliminar(id);
+            System.out.println("Se elimino correctamente el cliente con el ID: " + id);
         }
         else{
             System.out.println("El pin ingresado no corresponde a su ID");
@@ -76,18 +78,20 @@ public class GestionCliente implements GestionG<Cliente> {
 
     @Override
     public void altaManual(Cliente objeto) throws RepiteID, RepiteDNI {
+        int i=0;
         Scanner scan = new Scanner(System.in);
         clientesEstado.cargar();
         System.out.println("Ingrese un ID que desee");
         objeto.setId(scan.nextInt());
         if(null==clientesEstado.buscaPorID(objeto.getId())){
-            clientesEstado.agregar(objeto);
+            i++;
         }
         else{
             throw new RepiteID("El ID ingresado ya existe, por favor ingrese otro ID");
         }
         System.out.println("Ingrese su Pin");
         objeto.setPin(scan.nextInt());
+        scan.nextLine();
         System.out.println("Ingrese nombre");
         objeto.setNombre(scan.nextLine());
         System.out.println("Ingrese apellido");
@@ -95,7 +99,7 @@ public class GestionCliente implements GestionG<Cliente> {
         System.out.println("Ingrese DNI");
         objeto.setDni(scan.nextLine());
         if(null==clientesEstado.buscaPorDNI(objeto.getDni())){
-            clientesEstado.agregar(objeto);
+            i++;
         }
         else{
             throw new RepiteDNI("El DNI ingresado ya existe, por favor ingrese otro Dni");
@@ -104,10 +108,13 @@ public class GestionCliente implements GestionG<Cliente> {
         objeto.setCalle(scan.nextLine());
         System.out.println("Ingrese la altura de la calle");
         objeto.setAlturaCalle(scan.nextInt());
+        scan.nextLine();
         System.out.println("Ingrese la ciudad de residencia");
         objeto.setCiudad(scan.nextLine());
         System.out.println("Ingrese su saldo de cuenta");
         objeto.setSaldo(scan.nextDouble());
-        clientesEstado.agregar(objeto);
+        if (i==2){
+            clientesEstado.agregar(objeto);
+        }
     }
 }
