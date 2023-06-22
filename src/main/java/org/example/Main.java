@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.Carrito.Carrito;
+import org.example.Carrito.GestionCarrito;
 import org.example.Exceptions.RepiteDNI;
 import org.example.Exceptions.RepiteID;
 import org.example.Persona.Admin.Admin;
@@ -8,6 +10,8 @@ import org.example.Persona.Clientes.Cliente;
 import org.example.Persona.Clientes.GestionCliente;
 import org.example.Productos.GestionProducto;
 import org.example.Productos.Producto;
+import org.example.Productos.SerializaProducto;
+
 import java.util.Scanner;
 
 public class Main {
@@ -59,6 +63,59 @@ public class Main {
                                 GestionCliente client = new GestionCliente();
                                 client.modificarM(id);
                                 System.out.println("Se modifico correctamente el cliente con el ID: " + id);
+                            }
+                            case "5" -> {
+                                while (control.equalsIgnoreCase("s")) {
+                                    System.out.println("Elija una opcion:");
+                                    System.out.println("1. Agregar Producto");
+                                    System.out.println("2. Quitar Producto");
+                                    System.out.println("3. Ver Productos en el Carrito y su valor");
+                                    System.out.println("4. Ver lista de Productos disponibles");
+                                    System.out.println("5. Vaciar carrito");
+                                    System.out.println("6. Finalizar compra");
+                                    System.out.print("-> ");
+                                    String opcion3 = scan.nextLine();
+                                    switch (opcion3) {
+                                        case "1" -> {
+                                            System.out.print("Ingrese el ID del producto a comprar: ");
+                                            int id=scan.nextInt();
+                                            scan.nextLine();
+                                            SerializaProducto produ = new SerializaProducto();
+                                            Producto producto=produ.buscaPorID(id);
+                                            GestionCarrito carrito = new GestionCarrito();
+                                            carrito.agregarProducto(producto);
+                                        }
+                                        case "2" -> {
+                                            System.out.print("Ingrese el ID del producto que desea quitar: ");
+                                            int id=scan.nextInt();
+                                            scan.nextLine();
+                                            SerializaProducto produ = new SerializaProducto();
+                                            Producto producto=produ.buscaPorID(id);
+                                            GestionCarrito carrito = new GestionCarrito();
+                                            carrito.quitarProducto(producto);
+                                        }
+                                        case "3" -> {
+                                            GestionCarrito carrito = new GestionCarrito();
+                                            carrito.mostrarCarrito();
+                                        }
+                                        case "4" -> {
+                                            GestionProducto produ = new GestionProducto();
+                                            produ.mostrar();
+                                        }
+                                        case "5" -> {
+                                            System.out.println("Usted vacio el carrito");
+                                            GestionCarrito carrito = new GestionCarrito();
+                                            carrito.vaciarCarrito();
+                                        }
+                                        case "6" -> {
+                                            GestionCarrito carrito = new GestionCarrito();
+                                            carrito.detallesDeCompra();
+                                        }
+                                        default -> System.out.println("La eleccion es invalida");
+                                    }
+                                    System.out.println("Desea volver al menu de compra? s/n");
+                                    control = scan.nextLine();
+                                }
                             }
                             default -> System.out.println("La eleccion es invalida");
                         }
@@ -123,7 +180,7 @@ public class Main {
                             }
                             default -> System.out.println("La eleccion es invalida");
                         }
-                        System.out.println("Desea volver al menu de productos? s/n");
+                        System.out.println("Desea volver al menu de administrador? s/n");
                         control = scan.nextLine();
                     }
                     if (verificador!=admin.getPin()){
