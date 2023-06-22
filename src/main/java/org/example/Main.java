@@ -1,6 +1,5 @@
 package org.example;
 
-import org.example.Carrito.Carrito;
 import org.example.Carrito.GestionCarrito;
 import org.example.Exceptions.RepiteDNI;
 import org.example.Exceptions.RepiteID;

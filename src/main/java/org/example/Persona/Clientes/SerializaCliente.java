@@ -69,11 +69,8 @@ public class SerializaCliente implements Repository<Cliente> {
     @Override
     public void eliminar(int id) {
         cargar();
-        for(Cliente cliente: this.listaCliente){
-            if(cliente.getId()==id){
-                this.listaCliente.remove(cliente);
-            }
-        }
+        Cliente cliente=buscaPorID(id);
+        this.listaCliente.remove(cliente);
         guardar();
     }
     @Override
@@ -103,16 +100,16 @@ public class SerializaCliente implements Repository<Cliente> {
         }
         guardar();
     }
-    public boolean verificacion(int id){
-        Cliente cliente=buscaPorID(id);
+    public int verificacion(int id) {
+        int check=0;
+        Cliente cliente = buscaPorID(id);
         Scanner scan = new Scanner(System.in);
         System.out.println("Ingrese su pin");
-        int pin=scan.nextInt();
-        if (pin==cliente.getPin()){
-            return true;
+        int pin = scan.nextInt();
+        scan.nextLine();
+        if (pin == cliente.getPin()) {
+            check=1;
         }
-        else{
-            return false;
-        }
+        return check;
     }
 }

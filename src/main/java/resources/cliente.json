@@ -1,21 +1,11 @@
 [ {
   "pin" : 8475,
   "id" : 1,
-  "nombre" : "Marcos",
-  "apellido" : "Ramirez",
-  "dni" : "41236578",
-  "calle" : "Guido",
-  "alturaCalle" : 5021,
-  "ciudad" : "Mar del Plata",
-  "saldo" : 20000.0
-}, {
-  "pin" : 3525,
-  "id" : 2,
-  "nombre" : "Lucas",
-  "apellido" : "Flores",
-  "dni" : "40356984",
-  "calle" : "Castelli",
-  "alturaCalle" : 789,
-  "ciudad" : "Mar del Plata",
-  "saldo" : 35000.0
+  "nombre" : "Julian",
+  "apellido" : "Lopez",
+  "dni" : "41356542",
+  "calle" : "Chile",
+  "alturaCalle" : 545,
+  "ciudad" : "La Plata",
+  "saldo" : 15000.0
 } ]

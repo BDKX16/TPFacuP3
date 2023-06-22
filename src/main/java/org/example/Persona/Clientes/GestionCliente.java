@@ -23,7 +23,7 @@ public class GestionCliente implements GestionG<Cliente> {
             i++;
         }
         else{
-            throw new RepiteDNI("El Dni ingresado ya existe, por favor ingrese otro Dni");
+            throw new RepiteDNI("El DNI ingresado ya existe, por favor ingrese otro DNI");
         }
         if(i == 2){
             clientesEstado.agregar(objeto);
@@ -32,8 +32,8 @@ public class GestionCliente implements GestionG<Cliente> {
 
     @Override
     public void baja(int id) {
-        boolean check=clientesEstado.verificacion(id);
-        if(check){
+        int check=clientesEstado.verificacion(id);
+        if(check==1){
             clientesEstado.eliminar(id);
             System.out.println("Se elimino correctamente el cliente con el ID: " + id);
         }
@@ -52,9 +52,10 @@ public class GestionCliente implements GestionG<Cliente> {
 
     @Override
     public void modificarM(int id) throws RepiteDNI {
+        int check=0;
         Cliente clienteModificado=clientesEstado.buscaPorID(id);
         Scanner scan = new Scanner(System.in);
-        if(clientesEstado.verificacion(id)){
+        if(check!=clientesEstado.verificacion(id)){
             System.out.println("Ingrese el nuevo nombre del cliente");
             clienteModificado.setNombre(scan.nextLine());
             System.out.println("Ingrese el nuevo apellido del cliente");
@@ -65,6 +66,7 @@ public class GestionCliente implements GestionG<Cliente> {
             clienteModificado.setCalle(scan.nextLine());
             System.out.println("Ingrese la altura de la calle del cliente");
             clienteModificado.setAlturaCalle(scan.nextInt());
+            scan.nextLine();
             System.out.println("Ingrese la ciudad del cliente");
             clienteModificado.setCiudad(scan.nextLine());
             System.out.println("Ingrese el nuevo saldo del cliente");
